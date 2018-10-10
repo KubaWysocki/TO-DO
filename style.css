@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    line-height: 1.4em;
+    vertical-align: baseline;
+    text-decoration: none;
+    outline: 0;
+}
+body{
+    background-image: url(img/dark_wood/dark_wood.png);
+    font-family: 'Lato', sans-serif;
+    color: white;
+}
+h1{
+    font-size: 4vw;
+}
+h3{
+    font-size: 3vw;
+}
+.header{
+    text-align: center;
+    background-image: linear-gradient(to bottom, #363131a6 , #292525);
+    border-radius: 25px;
+    margin-top: 3vw;
+    transform: scale(1.03);
+}
+.main{
+    background-image: linear-gradient(to bottom, #363131a6 , #292525);
+    display: flex;
+    align-items: center;
+    font-size: 2.3vw;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 1vw;
+}
+.main img{
+    width: 4vw;
+    height: 4vw;
+    cursor: pointer;
+    margin-right: 10px;
+}
+input{
+    border-radius: 3px;
+    background-color: #1f1c1c;
+    border: none;
+    color: white;
+    width: 90%;
+    font-size: 2.3vw;
+}
+#task{
+    width: 55%;
+}
+.board{
+    padding: 5px;
+}
+.board>ul>li{
+    background-image: linear-gradient(to bottom, #363131a6 , #292525);
+    font-size: 2vw;
+    padding: 5px 15px;
+    border-radius: 10px;
+    margin-top: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.actionArea{
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+}
+.inputArea{
+    width: 60%;
+    word-wrap: break-word;
+    display: flex;
+    align-items: center;
+}
+.trash{
+    height: 4vw;
+    cursor: pointer;
+}
+.tic{
+    height: 3.6vw;
+    width: 3.6vw;
+    background-color: #343838;
+    border: 3px solid #585757;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.ticActive {
+    background-image: url(img/tic.png);
+    background-size: 90%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.pen {
+    width: 4vw;
+    height: 4vw;
+    margin-right: -1vw;
+    cursor: pointer;
+    background-image: url(img/crayon.png);
+    background-size: contain;
+}
+.save{
+    width: 4vw;
+    height: 4vw;
+    background-image: url(img/disk.png);
+    background-size: 90%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin-right: -1vw;
+}
