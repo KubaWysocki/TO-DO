@@ -10,6 +10,7 @@ body{
     background-image: url(img/dark_wood/dark_wood.png);
     font-family: 'Lato', sans-serif;
     color: white;
+    height: 100vh;
 }
 h1{
     font-size: 5vw;
@@ -21,7 +22,7 @@ h3{
     text-align: center;
     background-image: linear-gradient(to bottom, #363131a6 , #292525);
     border-radius: 25px;
-    margin-top: 3vw;
+    margin-top: 1vw;
     transform: scale(1.03);
 }
 .main{
@@ -54,7 +55,7 @@ input{
     width: 55%;
 }
 .board{
-    padding: 10px;
+    padding: 10px 10px 0 10px;
 }
 .board>ul{
     background-color: #635d5d79;
@@ -122,7 +123,15 @@ input{
     cursor: pointer;
     margin-right: -1vw;
 }
-
+.bottomBar{
+    background-image: linear-gradient(to bottom, #363131a6 , #292525);
+    margin-bottom: 5px;
+    margin-top: -10px;
+    border-radius: 10px;
+    padding: 1%;
+    display: flex;
+    justify-content: space-around;
+}
 @media (min-width: 576px) { 
     h1 {font-size: 4.5vw;}
     h3 {font-size: 3.5vw;}
@@ -147,4 +156,5 @@ input{
     .trash {height: 3.5vw;}
     .tic, .pen, .save{width: 3.5vw;height: 3.5vw;}
     .main img {width: 3.5vw;height: 3.5vw;}
+    input {font-size: 2.3vw;}
  }

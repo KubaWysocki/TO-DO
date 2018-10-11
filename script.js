@@ -75,3 +75,15 @@ function redoMode(){
     }
     counter();
 }
+
+let reset=document.getElementById('btnR');
+reset.addEventListener('click',()=>{document.getElementById('taskList').innerHTML=''; counter();},false);
+
+let delDone=document.getElementById('btnG');
+delDone.addEventListener('click',()=>{
+    let done=document.querySelectorAll('.ticActive');
+    for (i=0;i<done.length;i++){
+        done[i].parentNode.parentNode.parentNode.removeChild(done[i].parentNode.parentNode)
+    }
+    counter();
+},false)
