@@ -54,6 +54,10 @@ function erase(){
 }
 function ticAction(){
     this.classList.toggle('ticActive');
+    let btn=document.getElementById('btnG');
+    let ticks=document.querySelectorAll('.ticActive');
+    if (ticks.length>0) btn.className='btn btn-success';
+    else btn.className='btn btn-secondary';
 }
 function redoMode(){
     let oldTask=this.parentNode.previousSibling.firstChild.nodeValue;
@@ -86,4 +90,5 @@ delDone.addEventListener('click',()=>{
         done[i].parentNode.parentNode.parentNode.removeChild(done[i].parentNode.parentNode)
     }
     counter();
+    delDone.className='btn btn-secondary';
 },false)
