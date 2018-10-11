@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     border: 0;
-    line-height: 1.4em;
     vertical-align: baseline;
     text-decoration: none;
     outline: 0;
@@ -47,13 +46,24 @@ input{
     border: none;
     color: white;
     width: 90%;
-    font-size: 4vw;
+    font-size: 3.4vw;
+    margin: 0;
+    padding: 0;
 }
 #task{
     width: 55%;
 }
 .board{
-    padding: 5px;
+    padding: 10px;
+}
+.board>ul{
+    background-color: #635d5d79;
+    box-sizing: content-box;
+    padding: 0 2% 1% 2%;
+    border: .5vw solid black;
+    border-radius: 20px;
+    height: 60vh;
+    overflow: scroll;
 }
 .board>ul>li{
     background-image: linear-gradient(to bottom, #363131a6 , #292525);
@@ -85,7 +95,7 @@ input{
     width: 5vw;
     background-color: #343838;
     border: 3px solid #585757;
-    border-radius: 10px;
+    border-radius: 20%;
     cursor: pointer;
 }
 .ticActive {
@@ -113,8 +123,6 @@ input{
     margin-right: -1vw;
 }
 
-
-/* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
     h1 {font-size: 4.5vw;}
     h3 {font-size: 3.5vw;}
@@ -125,20 +133,16 @@ input{
     .trash {height: 4.5vw;}
     .tic, .pen, .save{width: 4.5vw;height: 4.5vw;}
  }
-
-/* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
     h1 {font-size: 4vw;}
     h3 {font-size: 3vw;}
     .main {font-size: 2.3vw;}
     .main img {width: 4vw;height: 4vw;}
     input {font-size: 2.5vw;}
-    .board>ul>li {font-size: 2vw;}
+    .board>ul>li {font-size: 2.2vw;}
     .trash {height: 4vw;}
     .tic, .pen, .save{width: 4vw;height: 4vw;}
  }
-
-/* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
     .trash {height: 3.5vw;}
     .tic, .pen, .save{width: 3.5vw;height: 3.5vw;}
