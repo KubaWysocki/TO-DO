@@ -77,7 +77,7 @@ function redoMode(){
 }
 
 let reset=document.getElementById('btnR');
-reset.addEventListener('click',()=>{document.getElementById('taskList').innerHTML=''; counter();},false);
+reset.addEventListener('click',()=>{if(confirm('Czy na pewno chcesz usunąć wszystko?')){document.getElementById('taskList').innerHTML=''; counter();}},false);
 
 let delDone=document.getElementById('btnG');
 delDone.addEventListener('click',()=>{
