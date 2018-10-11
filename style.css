@@ -13,10 +13,10 @@ body{
     color: white;
 }
 h1{
-    font-size: 4vw;
+    font-size: 5vw;
 }
 h3{
-    font-size: 3vw;
+    font-size: 4vw;
 }
 .header{
     text-align: center;
@@ -29,15 +29,15 @@ h3{
     background-image: linear-gradient(to bottom, #363131a6 , #292525);
     display: flex;
     align-items: center;
-    font-size: 2.3vw;
+    font-size: 3.5vw;
     justify-content: space-between;
     padding: 5px;
     border-radius: 10px;
     margin-top: 1vw;
 }
 .main img{
-    width: 4vw;
-    height: 4vw;
+    width: 6vw;
+    height: 6vw;
     cursor: pointer;
     margin-right: 10px;
 }
@@ -47,7 +47,7 @@ input{
     border: none;
     color: white;
     width: 90%;
-    font-size: 2.3vw;
+    font-size: 4vw;
 }
 #task{
     width: 55%;
@@ -57,7 +57,7 @@ input{
 }
 .board>ul>li{
     background-image: linear-gradient(to bottom, #363131a6 , #292525);
-    font-size: 2vw;
+    font-size: 3vw;
     padding: 5px 15px;
     border-radius: 10px;
     margin-top: 1vw;
@@ -77,12 +77,12 @@ input{
     align-items: center;
 }
 .trash{
-    height: 4vw;
+    height: 5vw;
     cursor: pointer;
 }
 .tic{
-    height: 3.6vw;
-    width: 3.6vw;
+    height: 5vw;
+    width: 5vw;
     background-color: #343838;
     border: 3px solid #585757;
     border-radius: 10px;
@@ -95,16 +95,16 @@ input{
     background-repeat: no-repeat;
 }
 .pen {
-    width: 4vw;
-    height: 4vw;
+    width: 5vw;
+    height: 5vw;
     margin-right: -1vw;
     cursor: pointer;
     background-image: url(img/crayon.png);
     background-size: contain;
 }
 .save{
-    width: 4vw;
-    height: 4vw;
+    width: 5vw;
+    height: 5vw;
     background-image: url(img/disk.png);
     background-size: 90%;
     background-position: center center;
@@ -112,3 +112,35 @@ input{
     cursor: pointer;
     margin-right: -1vw;
 }
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    h1 {font-size: 4.5vw;}
+    h3 {font-size: 3.5vw;}
+    .main {font-size: 2.7vw;}
+    .main img {width: 5vw;height: 5vw;}
+    input {font-size: 3vw;}
+    .board>ul>li {font-size: 2.4vw;}
+    .trash {height: 4.5vw;}
+    .tic, .pen, .save{width: 4.5vw;height: 4.5vw;}
+ }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    h1 {font-size: 4vw;}
+    h3 {font-size: 3vw;}
+    .main {font-size: 2.3vw;}
+    .main img {width: 4vw;height: 4vw;}
+    input {font-size: 2.5vw;}
+    .board>ul>li {font-size: 2vw;}
+    .trash {height: 4vw;}
+    .tic, .pen, .save{width: 4vw;height: 4vw;}
+ }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .trash {height: 3.5vw;}
+    .tic, .pen, .save{width: 3.5vw;height: 3.5vw;}
+    .main img {width: 3.5vw;height: 3.5vw;}
+ }

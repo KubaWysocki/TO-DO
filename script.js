@@ -58,7 +58,8 @@ function ticAction(){
 function redoMode(){
     let oldTask=this.parentNode.previousSibling.firstChild.nodeValue;
     let editInput=document.createElement('input');
-    editInput.placeholder=oldTask;
+        editInput.placeholder='Aktualizuj zadanie';
+        editInput.value=oldTask;
 
     if (this.classList.contains('pen')){
         this.parentNode.previousSibling.firstChild.nodeValue='';
