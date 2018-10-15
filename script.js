@@ -1,6 +1,29 @@
-let plus=document.getElementById('addTask');
-plus.addEventListener('click',addTaskUtility,false);
+window.onload=()=>{
+    let plus=document.getElementById('addTask');
+    plus.addEventListener('click',addTaskUtility,false);
 
+    let reset=document.getElementById('btnR');
+    reset.addEventListener('click',()=>{if(confirm('Czy na pewno chcesz usunąć wszystko?')){document.getElementById('taskList').innerHTML=''; counter();}},false);
+    
+    let enterTask=document.getElementById('task');
+    enterTask.addEventListener('keydown',(e)=>{
+        if(e.key=="Enter") addTaskUtility();
+    })
+    enterTask.focus();
+
+    let delDone=document.getElementById('btnG');
+    delDone.addEventListener('click',()=>{
+        let done=document.querySelectorAll('.ticActive');
+        for (i=0;i<done.length;i++){
+            done[i].parentNode.parentNode.parentNode.removeChild(done[i].parentNode.parentNode)
+        }
+        counter();
+        delDone.className='btn btn-secondary';
+    },false)
+    let memo= localStorage.getItem('list');
+    document.getElementById('taskList').innerHTML=memo;
+    makeActions();
+}
 function addTaskUtility() {
     const trash=new Image();
         trash.src='img/trash.png';
@@ -43,6 +66,10 @@ function makeActions(){
         allTic[i].addEventListener('click',ticAction,false);
         edit[i].addEventListener('click',redoMode,false);
     }
+    let btn=document.getElementById('btnG');
+    let ticks=document.querySelectorAll('.ticActive');
+    if (ticks.length>0) btn.className='btn btn-success';
+    else btn.className='btn btn-secondary';
 }
 function counter(){
     let taskCo=document.getElementById('counter');
@@ -54,10 +81,7 @@ function erase(){
 }
 function ticAction(){
     this.classList.toggle('ticActive');
-    let btn=document.getElementById('btnG');
-    let ticks=document.querySelectorAll('.ticActive');
-    if (ticks.length>0) btn.className='btn btn-success';
-    else btn.className='btn btn-secondary';
+    makeActions();
 }
 function redoMode(){
     let oldTask=this.parentNode.previousSibling.firstChild.nodeValue;
@@ -79,16 +103,6 @@ function redoMode(){
     }
     counter();
 }
-
-let reset=document.getElementById('btnR');
-reset.addEventListener('click',()=>{if(confirm('Czy na pewno chcesz usunąć wszystko?')){document.getElementById('taskList').innerHTML=''; counter();}},false);
-
-let delDone=document.getElementById('btnG');
-delDone.addEventListener('click',()=>{
-    let done=document.querySelectorAll('.ticActive');
-    for (i=0;i<done.length;i++){
-        done[i].parentNode.parentNode.parentNode.removeChild(done[i].parentNode.parentNode)
-    }
-    counter();
-    delDone.className='btn btn-secondary';
-},false)
+window.onunload=()=>{
+    localStorage.setItem('list',document.getElementById('taskList').innerHTML)
+}
