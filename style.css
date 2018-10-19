@@ -123,13 +123,27 @@ input{
     cursor: pointer;
     margin-right: -1vw;
 }
+.arr{
+    width: 5vw;
+    height: 5vw;
+    cursor: pointer;
+    background-image: url(img/arrow.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 .subBoard{
     background-color:#292525;
     width: 60%;
-    min-height: 50px;
+    height: 50px;
     margin-left: 3%;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+}
+.hide {
+    display: none;
+}
+.rotor {
+    transform: rotate(180deg);
 }
 .bottomBar{
     background-image: linear-gradient(to bottom, #363131a6 , #292525);
@@ -146,7 +160,7 @@ input{
     input {font-size: 3vw;}
     .board>ul>li {font-size: 2.4vw;}
     .trash {height: 4.5vw;}
-    .tic, .pen, .save, .plus{width: 4.5vw;height: 4.5vw;}
+    .tic, .pen, .save, .plus, .arr{width: 4.5vw;height: 4.5vw;}
  }
 @media (min-width: 768px) { 
     h1 {font-size: 4vw;}
@@ -155,11 +169,11 @@ input{
     input {font-size: 2.5vw;}
     .board>ul>li {font-size: 2.2vw;}
     .trash {height: 4vw;}
-    .tic, .pen, .save, .plus{width: 4vw;height: 4vw;}
+    .tic, .pen, .save, .plus, .arr{width: 4vw;height: 4vw;}
  }
 @media (min-width: 992px) { 
     .trash {height: 3.5vw;}
-    .tic, .pen, .save, .plus{width: 3.5vw;height: 3.5vw;}
+    .tic, .pen, .save, .plus, .arr{width: 3.5vw;height: 3.5vw;}
     .main img {width: 3.5vw;height: 3.5vw;}
     input {font-size: 2.3vw;}
  }

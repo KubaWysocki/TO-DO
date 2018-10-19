@@ -77,12 +77,8 @@ function makeActions(){
         minus[i].addEventListener('click',erase);
         allTic[i].addEventListener('click',ticAction);
         edit[i].addEventListener('click',redoMode);
-        addSubList[i].addEventListener('click',subList);
+        if (addSubList[i])addSubList[i].addEventListener('click',subList);
     }
-    let btn=document.getElementById('btnG');
-    let ticks=document.querySelectorAll('.ticActive');
-    if (ticks.length>0) btn.className='btn btn-success';
-    else btn.className='btn btn-secondary';
 }
 function counter(){
     let taskCo=document.getElementById('counter');
@@ -94,7 +90,10 @@ function erase(){
 }
 function ticAction(){
     this.classList.toggle('ticActive');
-    makeActions();
+    let btn=document.getElementById('btnG');
+    let ticks=document.querySelectorAll('.ticActive');
+    if (ticks.length>0) btn.className='btn btn-success';
+    else btn.className='btn btn-secondary';
 }
 function redoMode(){
     let oldTask=this.parentNode.previousSibling.firstChild.nodeValue;
@@ -124,6 +123,13 @@ function subList(){
         subBoard.classList.add('subBoard');
     this.parentNode.parentNode.parentNode.appendChild(subBoard);
     this.removeEventListener('click',subList);
+    this.className='arr';
+    this.addEventListener('click',hideSubList);
+}
+function hideSubList(){
+    let subBoard=this.parentNode.parentNode.nextSibling;
+    subBoard.classList.toggle('hide');
+    this.classList.toggle('rotor');
 }
 window.onunload=()=>{
     let unsavedTasks= document.querySelectorAll('.save');
