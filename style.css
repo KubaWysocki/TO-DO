@@ -29,14 +29,9 @@ h1{
     font-size: 3.5vw;
     justify-content: space-between;
     padding: 5px;
+    padding-right: 2%;
     border-radius: 10px;
     margin-top: 1vw;
-}
-.main img{
-    width: 6vw;
-    height: 6vw;
-    cursor: pointer;
-    margin-right: 10px;
 }
 input{
     border-radius: 3px;
@@ -64,9 +59,8 @@ input{
     height: 60vh;
     overflow: scroll;
 }
-.board>ul>li{
+.taskItem{
     background-image: linear-gradient(to bottom, #363131a6 , #292525);
-    font-size: 3vw;
     padding: 5px 15px;
     border-radius: 10px;
     margin-top: 1vw;
@@ -75,15 +69,23 @@ input{
     justify-content: space-between;
 }
 .actionArea{
-    width: 40%;
+    width: 35%;
     display: flex;
     justify-content: space-around;
 }
 .inputArea{
-    width: 60%;
+    width: 65%;
     word-wrap: break-word;
     display: flex;
     align-items: center;
+}
+.plus{
+    width: 5vw;
+    height: 5vw;
+    cursor: pointer;
+    background-image: url(img/plus.png);
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .trash{
     height: 5vw;
@@ -121,6 +123,14 @@ input{
     cursor: pointer;
     margin-right: -1vw;
 }
+.subBoard{
+    background-color:#292525;
+    width: 60%;
+    min-height: 50px;
+    margin-left: 3%;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
 .bottomBar{
     background-image: linear-gradient(to bottom, #363131a6 , #292525);
     margin-bottom: 5px;
@@ -136,7 +146,7 @@ input{
     input {font-size: 3vw;}
     .board>ul>li {font-size: 2.4vw;}
     .trash {height: 4.5vw;}
-    .tic, .pen, .save{width: 4.5vw;height: 4.5vw;}
+    .tic, .pen, .save, .plus{width: 4.5vw;height: 4.5vw;}
  }
 @media (min-width: 768px) { 
     h1 {font-size: 4vw;}
@@ -145,11 +155,11 @@ input{
     input {font-size: 2.5vw;}
     .board>ul>li {font-size: 2.2vw;}
     .trash {height: 4vw;}
-    .tic, .pen, .save{width: 4vw;height: 4vw;}
+    .tic, .pen, .save, .plus{width: 4vw;height: 4vw;}
  }
 @media (min-width: 992px) { 
     .trash {height: 3.5vw;}
-    .tic, .pen, .save{width: 3.5vw;height: 3.5vw;}
+    .tic, .pen, .save, .plus{width: 3.5vw;height: 3.5vw;}
     .main img {width: 3.5vw;height: 3.5vw;}
     input {font-size: 2.3vw;}
  }
