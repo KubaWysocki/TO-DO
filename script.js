@@ -72,12 +72,14 @@ function makeActions(){
     let allTic=document.querySelectorAll('.tic');
     let edit=document.querySelectorAll('.edit');
     let addSubList=document.querySelectorAll('.addSubList');
+    let arrow=document.querySelectorAll('.arr');
 
     for (i=0;i<document.querySelectorAll('.taskItem').length;i++){
         minus[i].addEventListener('click',erase);
         allTic[i].addEventListener('click',ticAction);
         edit[i].addEventListener('click',redoMode);
         if (addSubList[i])addSubList[i].addEventListener('click',subList);
+        if(arrow[i]) arrow[i].addEventListener('click',hideSubList);
     }
 }
 function counter(){
@@ -100,31 +102,38 @@ function redoMode(){
     let editInput=document.createElement('input');
         editInput.placeholder='Aktualizuj zadanie';
         editInput.value=oldTask;
+    editInput.addEventListener('keydown',(e)=>{
+        if(e.key=="Enter") save(this);
+    });
+    if (this.classList.contains('pen')) pen(this);
+    else if (this.classList.contains('edit')) save(this);
 
-    if (this.classList.contains('pen')){
-        this.parentNode.previousSibling.firstChild.nodeValue='';
-        this.parentNode.previousSibling.appendChild(editInput);
-        this.classList.remove('pen');
+    function pen (that) {
+        that.parentNode.previousSibling.firstChild.nodeValue='';
+        that.parentNode.previousSibling.appendChild(editInput);
+        that.classList.remove('pen');
         editInput.focus();
-        this.classList.add('save');
+        that.classList.add('save');
     }
-    else if (this.classList.contains('edit')){
-        let updTask=this.parentNode.previousSibling.firstChild.nextSibling;
-        this.parentNode.previousSibling.removeChild(this.parentNode.previousSibling.firstChild.nextSibling);
-        this.parentNode.previousSibling.firstChild.nodeValue=updTask.value;
-        this.classList.remove('save')
-        this.classList.add('pen');
-        if (updTask=="") this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+    function save (that){
+        let updTask=that.parentNode.previousSibling.firstChild.nextSibling;
+        that.parentNode.previousSibling.removeChild(that.parentNode.previousSibling.firstChild.nextSibling);
+        that.parentNode.previousSibling.firstChild.nodeValue=updTask.value;
+        that.classList.remove('save')
+        that.classList.add('pen');
+        if (updTask=="") that.parentNode.parentNode.parentNode.removeChild(that.parentNode.parentNode);
     }
     counter();
 }
 function subList(){
     let subBoard=document.createElement('div');
         subBoard.classList.add('subBoard');
+    let orderLi=document.createElement('ol');
+        subBoard.appendChild(orderLi);
     this.parentNode.parentNode.parentNode.appendChild(subBoard);
     this.removeEventListener('click',subList);
     this.className='arr';
-    this.addEventListener('click',hideSubList);
+    makeActions();
 }
 function hideSubList(){
     let subBoard=this.parentNode.parentNode.nextSibling;
