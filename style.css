@@ -134,16 +134,27 @@ input{
 .subBoard{
     background-color:#292525;
     width: 60%;
-    height: 50px;
     margin-left: 3%;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+    padding: 1%;
 }
 .hide {
     display: none;
 }
+.subBoard>ol{
+    list-style-position: inside;
+}
 .rotor {
     transform: rotate(180deg);
+}
+.addSubItem{
+    margin-left: 2%;
+    float: left;
+}
+.inputSubList{
+    float: left;
+    width: 85%;
 }
 .bottomBar{
     background-image: linear-gradient(to bottom, #363131a6 , #292525);

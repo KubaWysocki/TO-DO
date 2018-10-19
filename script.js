@@ -73,6 +73,7 @@ function makeActions(){
     let edit=document.querySelectorAll('.edit');
     let addSubList=document.querySelectorAll('.addSubList');
     let arrow=document.querySelectorAll('.arr');
+    let subItem=document.querySelectorAll('.addSubItem');
 
     for (i=0;i<document.querySelectorAll('.taskItem').length;i++){
         minus[i].addEventListener('click',erase);
@@ -80,6 +81,7 @@ function makeActions(){
         edit[i].addEventListener('click',redoMode);
         if (addSubList[i])addSubList[i].addEventListener('click',subList);
         if(arrow[i]) arrow[i].addEventListener('click',hideSubList);
+        if(subItem[i]) subItem[i].addEventListener('click',addSubItem);
     }
 }
 function counter(){
@@ -130,15 +132,35 @@ function subList(){
         subBoard.classList.add('subBoard');
     let orderLi=document.createElement('ol');
         subBoard.appendChild(orderLi);
+    let inputSubList=document.createElement('input');
+        inputSubList.className='inputSubList';
+        subBoard.appendChild(inputSubList);
+    let plus=document.createElement('div');
+        plus.classList.add('plus','addSubItem');
+        subBoard.appendChild(plus);
+        let clear=document.createElement('div');
+        clear.style.clear='both';
+        subBoard.appendChild(clear);
+
     this.parentNode.parentNode.parentNode.appendChild(subBoard);
     this.removeEventListener('click',subList);
     this.className='arr';
+    inputSubList.focus();
     makeActions();
 }
 function hideSubList(){
     let subBoard=this.parentNode.parentNode.nextSibling;
     subBoard.classList.toggle('hide');
     this.classList.toggle('rotor');
+}
+function addSubItem(){
+    let subItemVal=this.previousSibling;
+    let subItem=document.createElement('li');
+    if(subItemVal.value){
+        this.previousSibling.previousSibling.appendChild(subItem);
+        subItem.appendChild(document.createTextNode(subItemVal.value));
+    }
+    subItemVal.value='';
 }
 window.onunload=()=>{
     let unsavedTasks= document.querySelectorAll('.save');
