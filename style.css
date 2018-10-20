@@ -13,7 +13,7 @@ body{
     height: 100vh;
 }
 h1{
-    font-size: 5vw;
+    font-size: 7vw;
 }
 .header{
     text-align: center;
@@ -39,12 +39,13 @@ input{
     border: none;
     color: white;
     width: 90%;
-    font-size: 3.4vw;
+    font-size: 3vw;
     margin: 0;
     padding: 0;
 }
 #task{
     width: 55%;
+    font-size: 4vw;
 }
 .board{
     padding: 10px 10px 0 10px;
@@ -58,6 +59,10 @@ input{
     border-radius: 20px;
     height: 60vh;
     overflow: scroll;
+    list-style: none;
+}
+.board>ul>li{
+    font-size: 3vw;
 }
 .taskItem{
     background-image: linear-gradient(to bottom, #363131a6 , #292525);
@@ -108,7 +113,6 @@ input{
 .pen {
     width: 5vw;
     height: 5vw;
-    margin-right: -1vw;
     cursor: pointer;
     background-image: url(img/crayon.png);
     background-size: contain;
@@ -121,7 +125,6 @@ input{
     background-position: center center;
     background-repeat: no-repeat;
     cursor: pointer;
-    margin-right: -1vw;
 }
 .arr{
     width: 5vw;
@@ -145,16 +148,16 @@ input{
 .subBoard>ol{
     list-style-position: inside;
 }
+.box{
+    display: flex;
+    justify-content: space-around;
+}
 .rotor {
     transform: rotate(180deg);
 }
-.addSubItem{
-    margin-left: 2%;
-    float: left;
-}
 .inputSubList{
-    float: left;
     width: 85%;
+    margin-top: 1%;
 }
 .bottomBar{
     background-image: linear-gradient(to bottom, #363131a6 , #292525);
@@ -165,26 +168,24 @@ input{
     justify-content: space-around;
 }
 @media (min-width: 576px) { 
-    h1 {font-size: 4.5vw;}
+    h1 {font-size: 5vw;}
     .main {font-size: 2.7vw;}
-    .main img {width: 5vw;height: 5vw;}
-    input {font-size: 3vw;}
-    .board>ul>li {font-size: 2.4vw;}
+    input {font-size: 2vw;}
+    .board>ul>li {font-size: 2vw;}
     .trash {height: 4.5vw;}
     .tic, .pen, .save, .plus, .arr{width: 4.5vw;height: 4.5vw;}
+    #task{font-size: 3vw}
  }
 @media (min-width: 768px) { 
-    h1 {font-size: 4vw;}
+    h1 {font-size: 4.5vw;}
     .main {font-size: 2.3vw;}
-    .main img {width: 4vw;height: 4vw;}
-    input {font-size: 2.5vw;}
-    .board>ul>li {font-size: 2.2vw;}
     .trash {height: 4vw;}
     .tic, .pen, .save, .plus, .arr{width: 4vw;height: 4vw;}
  }
 @media (min-width: 992px) { 
-    .trash {height: 3.5vw;}
+    .trash {height: 4vw;}
     .tic, .pen, .save, .plus, .arr{width: 3.5vw;height: 3.5vw;}
-    .main img {width: 3.5vw;height: 3.5vw;}
-    input {font-size: 2.3vw;}
+    input {font-size: 1.6vw;}
+    .board>ul>li {font-size: 1.6vw;}
+    #task{font-size: 2.5vw}
  }

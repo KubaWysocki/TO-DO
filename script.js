@@ -4,14 +4,19 @@ window.onload=()=>{
 
     let reset=document.getElementById('btnR');
     reset.addEventListener('click',()=>{
-        if(confirm('Czy na pewno chcesz usunąć wszystko?')){document.getElementById('taskList').innerHTML=''; counter();}
+        if(document.querySelectorAll('.taskItem').length>0){
+            if(confirm('Czy na pewno chcesz usunąć wszystko?')){
+                document.getElementById('taskList').innerHTML=''; 
+                counter();
+            }
+        }
     });
     
     let enterTask=document.getElementById('task');
     enterTask.focus();
     enterTask.addEventListener('keydown',(e)=>{
         if(e.key=="Enter") addTaskUtility();
-    })
+    });
 
     let delDone=document.getElementById('btnG');
     delDone.addEventListener('click',()=>{
@@ -49,7 +54,7 @@ function addTaskUtility() {
     let plus=document.createElement('div');
         plus.classList.add('plus','addSubList');
 
-    if (actualTask.value!=0){
+    if (actualTask.value){
         inputArea.appendChild(document.createTextNode(actualTask.value));
         actionArea.appendChild(pen);
         actionArea.appendChild(tic);
@@ -79,7 +84,7 @@ function makeActions(){
         minus[i].addEventListener('click',erase);
         allTic[i].addEventListener('click',ticAction);
         edit[i].addEventListener('click',redoMode);
-        if (addSubList[i])addSubList[i].addEventListener('click',subList);
+        if(addSubList[i])addSubList[i].addEventListener('click',subList);
         if(arrow[i]) arrow[i].addEventListener('click',hideSubList);
         if(subItem[i]) subItem[i].addEventListener('click',addSubItem);
     }
@@ -123,7 +128,7 @@ function redoMode(){
         that.parentNode.previousSibling.firstChild.nodeValue=updTask.value;
         that.classList.remove('save')
         that.classList.add('pen');
-        if (updTask=="") that.parentNode.parentNode.parentNode.removeChild(that.parentNode.parentNode);
+        if (updTask.value=="") that.parentNode.parentNode.parentNode.removeChild(that.parentNode.parentNode);
     }
     counter();
 }
@@ -132,15 +137,17 @@ function subList(){
         subBoard.classList.add('subBoard');
     let orderLi=document.createElement('ol');
         subBoard.appendChild(orderLi);
+    let box=document.createElement('div');
+        box.className='box';
     let inputSubList=document.createElement('input');
         inputSubList.className='inputSubList';
-        subBoard.appendChild(inputSubList);
+        inputSubList.placeholder='Dodaj podpunkt zadania';
+        box.appendChild(inputSubList);
     let plus=document.createElement('div');
         plus.classList.add('plus','addSubItem');
-        subBoard.appendChild(plus);
-        let clear=document.createElement('div');
-        clear.style.clear='both';
-        subBoard.appendChild(clear);
+        box.appendChild(plus);
+
+        subBoard.appendChild(box);
 
     this.parentNode.parentNode.parentNode.appendChild(subBoard);
     this.removeEventListener('click',subList);
@@ -157,7 +164,7 @@ function addSubItem(){
     let subItemVal=this.previousSibling;
     let subItem=document.createElement('li');
     if(subItemVal.value){
-        this.previousSibling.previousSibling.appendChild(subItem);
+        this.parentNode.previousSibling.appendChild(subItem);
         subItem.appendChild(document.createTextNode(subItemVal.value));
     }
     subItemVal.value='';
