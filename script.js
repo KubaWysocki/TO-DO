@@ -11,13 +11,6 @@ window.onload=()=>{
             }
         }
     });
-    
-    let enterTask=document.getElementById('task');
-    enterTask.focus();
-    enterTask.addEventListener('keydown',(e)=>{
-        if(e.key=="Enter") addTaskUtility();
-    });
-
     let delDone=document.getElementById('btnG');
     delDone.addEventListener('click',()=>{
         let done=document.querySelectorAll('.ticActive');
@@ -26,6 +19,11 @@ window.onload=()=>{
         }
         counter();
         delDone.className='btn btn-secondary';
+    });
+    let enterTask=document.getElementById('task');
+    enterTask.focus();
+    enterTask.addEventListener('keydown',(e)=>{
+        if(e.key=="Enter") addTaskUtility();
     });
     let memo= localStorage.getItem('list');
     document.getElementById('taskList').innerHTML=memo;
@@ -79,6 +77,7 @@ function makeActions(){
     let addSubList=document.querySelectorAll('.addSubList');
     let arrow=document.querySelectorAll('.arr');
     let subItem=document.querySelectorAll('.addSubItem');
+    let inputSubList=document.querySelectorAll('.inputSubList');
 
     for (i=0;i<document.querySelectorAll('.taskItem').length;i++){
         minus[i].addEventListener('click',erase);
@@ -86,7 +85,10 @@ function makeActions(){
         edit[i].addEventListener('click',redoMode);
         if(addSubList[i])addSubList[i].addEventListener('click',subList);
         if(arrow[i]) arrow[i].addEventListener('click',hideSubList);
-        if(subItem[i]) subItem[i].addEventListener('click',addSubItem);
+        if(subItem[i]) subItem[i].addEventListener('click',function(){addSubItem(this.previousSibling)});
+        if(inputSubList[i])inputSubList[i].addEventListener('keydown',function(e){
+            if(e.key=="Enter") addSubItem(this);
+        });
     }
 }
 function counter(){
@@ -141,7 +143,7 @@ function subList(){
         box.className='box';
     let inputSubList=document.createElement('input');
         inputSubList.className='inputSubList';
-        inputSubList.placeholder='Dodaj podpunkt zadania';
+        inputSubList.placeholder='Dodaj podpunkt do zadania';
         box.appendChild(inputSubList);
     let plus=document.createElement('div');
         plus.classList.add('plus','addSubItem');
@@ -160,14 +162,13 @@ function hideSubList(){
     subBoard.classList.toggle('hide');
     this.classList.toggle('rotor');
 }
-function addSubItem(){
-    let subItemVal=this.previousSibling;
+function addSubItem(that){
     let subItem=document.createElement('li');
-    if(subItemVal.value){
-        this.parentNode.previousSibling.appendChild(subItem);
-        subItem.appendChild(document.createTextNode(subItemVal.value));
+    if(that.value){
+        that.parentNode.previousSibling.appendChild(subItem);
+        subItem.appendChild(document.createTextNode(that.value));
     }
-    subItemVal.value='';
+    that.value='';
 }
 window.onunload=()=>{
     let unsavedTasks= document.querySelectorAll('.save');
