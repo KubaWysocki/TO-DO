@@ -75,13 +75,13 @@ input{
 }
 .actionArea{
     width: 35%;
-    display: flex;
+    display: inline-flex;
     justify-content: space-around;
 }
 .inputArea{
     width: 65%;
     word-wrap: break-word;
-    display: flex;
+    display: inline-flex;
     align-items: center;
 }
 .plus{
@@ -148,6 +148,7 @@ input{
 .subBoard>ol{
     list-style-position: inside;
 }
+
 .box{
     display: flex;
     justify-content: space-around;
@@ -158,6 +159,23 @@ input{
 .inputSubList{
     width: 85%;
     margin-top: 1%;
+}
+.subTaskItem{
+    display: inline-flex;
+    width: 85%;
+    align-items: center;
+}
+.subInputArea{
+    width: 75%;
+    display: inline-flex;
+    word-wrap: break-word;
+}
+.subActionArea{
+    width: 30%;
+    display: inline-flex;
+    justify-content: space-between;
+    transform: scale(0.7);
+    align-items: center;
 }
 .bottomBar{
     background-image: linear-gradient(to bottom, #363131a6 , #292525);

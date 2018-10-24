@@ -79,10 +79,10 @@ function makeActions(){
     let subItem=document.querySelectorAll('.addSubItem');
     let inputSubList=document.querySelectorAll('.inputSubList');
 
-    for (i=0;i<document.querySelectorAll('.taskItem').length;i++){
-        minus[i].addEventListener('click',erase);
-        allTic[i].addEventListener('click',ticAction);
-        edit[i].addEventListener('click',redoMode);
+    for (i=0;i<minus.length;i++){
+        if(minus[i])minus[i].addEventListener('click',erase);
+        if(allTic[i])allTic[i].addEventListener('click',ticAction);
+        if(edit[i])edit[i].addEventListener('click',redoMode);
         if(addSubList[i])addSubList[i].addEventListener('click',subList);
         if(arrow[i]) arrow[i].addEventListener('click',hideSubList);
         if(subItem[i]) subItem[i].addEventListener('click',function(){addSubItem(this.previousSibling)});
@@ -163,12 +163,31 @@ function hideSubList(){
     this.classList.toggle('rotor');
 }
 function addSubItem(that){
+    const trash=new Image();
+        trash.src='img/trash.png';
+        trash.className='trash';
+    let tic=document.createElement('div');
+        tic.className='tic';
+
     let subItem=document.createElement('li');
+    let subInputArea=document.createElement('div');
+        subInputArea.className='subInputArea';
+    let subActionArea=document.createElement('div');
+        subActionArea.className='subActionArea';
+    let subTaskItem=document.createElement('div');
+        subTaskItem.className='subTaskItem';
+
     if(that.value){
+        subTaskItem.appendChild(subInputArea);
+        subTaskItem.appendChild(subActionArea);
+        subInputArea.appendChild(document.createTextNode(that.value));
+        subActionArea.appendChild(tic);
+        subActionArea.appendChild(trash);
+        subItem.appendChild(subTaskItem);
         that.parentNode.previousSibling.appendChild(subItem);
-        subItem.appendChild(document.createTextNode(that.value));
     }
     that.value='';
+    makeActions();
 }
 window.onunload=()=>{
     let unsavedTasks= document.querySelectorAll('.save');
