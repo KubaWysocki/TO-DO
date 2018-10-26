@@ -7,7 +7,7 @@
     outline: 0;
 }
 body{
-    background-image: url(img/dark_wood/dark_wood.png);
+    background-image: url(/img/dark_wood/dark_wood.png);
     font-family: 'Lato', sans-serif;
     color: white;
     height: 100vh;
@@ -66,7 +66,7 @@ input{
 }
 .taskItem{
     background-image: linear-gradient(to bottom, #363131a6 , #292525);
-    padding: 5px 15px;
+    padding: 1% 2%;
     border-radius: 10px;
     margin-top: 1vw;
     display: flex;
@@ -76,7 +76,7 @@ input{
 .actionArea{
     width: 35%;
     display: inline-flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 .inputArea{
@@ -89,13 +89,18 @@ input{
     width: 5vw;
     height: 5vw;
     cursor: pointer;
-    background-image: url(img/plus.png);
+    background-image: url(/img/plus.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
 .trash{
+    width: 5vw;
     height: 5vw;
     cursor: pointer;
+    background-image: url(/img/trash.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 .tic{
     height: 5vw;
@@ -106,7 +111,7 @@ input{
     cursor: pointer;
 }
 .ticActive {
-    background-image: url(img/tic.png);
+    background-image: url(/img/tic.png);
     background-size: 90%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -115,13 +120,14 @@ input{
     width: 5vw;
     height: 5vw;
     cursor: pointer;
-    background-image: url(img/crayon.png);
+    background-image: url(/img/crayon.png);
     background-size: contain;
+    background-repeat: no-repeat;
 }
 .save{
     width: 5vw;
     height: 5vw;
-    background-image: url(img/disk.png);
+    background-image: url(/img/disk.png);
     background-size: 90%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -131,7 +137,7 @@ input{
     width: 5vw;
     height: 5vw;
     cursor: pointer;
-    background-image: url(img/arrow.png);
+    background-image: url(/img/arrow.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -179,7 +185,6 @@ input{
 }
 .bottomBar{
     background-image: linear-gradient(to bottom, #363131a6 , #292525);
-    margin-bottom: 5px;
     border-radius: 10px;
     padding: 1%;
     display: flex;
@@ -190,19 +195,16 @@ input{
     .main {font-size: 2.7vw;}
     input {font-size: 2vw;}
     .board>ul>li {font-size: 2vw;}
-    .trash {height: 4.5vw;}
-    .tic, .pen, .save, .plus, .arr{width: 4.5vw;height: 4.5vw;}
+    .trash, .tic, .pen, .save, .plus, .arr{width: 4.5vw;height: 4.5vw;}
     #task{font-size: 3vw}
  }
 @media (min-width: 768px) { 
     h1 {font-size: 4.5vw;}
     .main {font-size: 2.3vw;}
-    .trash {height: 4vw;}
-    .tic, .pen, .save, .plus, .arr{width: 4vw;height: 4vw;}
+    .trash, .tic, .pen, .save, .plus, .arr{width: 4vw;height: 4vw;}
  }
 @media (min-width: 992px) { 
-    .trash {height: 4vw;}
-    .tic, .pen, .save, .plus, .arr{width: 3.5vw;height: 3.5vw;}
+    .trash, .tic, .pen, .save, .plus, .arr{width: 3.5vw;height: 3.5vw;}
     input {font-size: 1.6vw;}
     .board>ul>li {font-size: 1.6vw;}
     #task{font-size: 2.5vw}
