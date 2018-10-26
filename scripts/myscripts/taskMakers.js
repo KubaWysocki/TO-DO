@@ -39,7 +39,7 @@ function subList(){
     subBoard=makeFullElement(subBoard, 'div', ['subBoard']);
     orderLi=makeFullElement(orderLi, 'ol')
     box=makeFullElement(box, 'div', ['box']);
-    inputSubList=makeFullElement(inputSubList, 'input', '', 'Dodaj podpunkt do zadania')
+    inputSubList=makeFullElement(inputSubList, 'input', [], 'Dodaj podpunkt do zadania')
         inputSubList.addEventListener('keydown',function(e){
             if(e.key=="Enter") addSubItem(this);
         });

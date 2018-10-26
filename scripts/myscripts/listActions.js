@@ -16,7 +16,7 @@ function ticAction(){
 function redoMode(){
     let oldTask=this.parentNode.previousSibling.firstChild.nodeValue;
     let editInput;
-    editInput=makeFullElement(editInput, 'input', '', 'Aktualizuj zadanie')
+    editInput=makeFullElement(editInput, 'input', [], 'Aktualizuj zadanie')
         editInput.value=oldTask;
     editInput.addEventListener('keydown',(e)=>{
         if(e.key=="Enter") save(this);
