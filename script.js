@@ -15,7 +15,7 @@ window.onload=()=>{
     delDone.addEventListener('click',()=>{
         const done=document.querySelectorAll('.ticActive');
         for (i=0;i<done.length;i++){
-            done[i].parentNode.parentNode.parentNode.parentNode.removeChild(done[i].parentNode.parentNode.parentNode)
+            done[i].closest('ul, ol').removeChild(done[i].closest('li'));
         }
         counter();
         delDone.className='btn btn-secondary';
@@ -27,10 +27,7 @@ window.onload=()=>{
     });
     const memo= localStorage.getItem('list');
     document.getElementById('taskList').innerHTML=memo;
-    makeActions();
-    counter();
-}
-function makeActions(){
+    
     const trash=document.querySelectorAll('.trash');
     const allTic=document.querySelectorAll('.tic');
     const edit=document.querySelectorAll('.edit');
@@ -50,6 +47,7 @@ function makeActions(){
             if(e.key=="Enter") addSubItem(this);
         });
     }
+    counter();
 }
 function addTaskUtility() {
     const trash=new Image();
@@ -99,7 +97,7 @@ function counter(){
     taskCo.innerHTML=document.querySelectorAll('.taskItem').length;
 }
 function erase(){
-    this.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode);
+    this.closest('ul, ol').removeChild(this.closest('li'));
     counter();
 }
 function ticAction(){
@@ -133,7 +131,7 @@ function redoMode(){
         that.parentNode.previousSibling.firstChild.nodeValue=updTask.value;
         that.classList.remove('save')
         that.classList.add('pen');
-        if (updTask.value=="") that.parentNode.parentNode.parentNode.removeChild(that.parentNode.parentNode);
+        if (updTask.value=="") that.closest('ul').removeChild(that.closest('li'));
     }
     counter();
 }
@@ -158,7 +156,7 @@ function subList(){
 
         subBoard.appendChild(box);
 
-    this.parentNode.parentNode.parentNode.appendChild(subBoard);
+    this.closest('li').appendChild(subBoard);
     this.removeEventListener('click',subList);
     this.className='arr';
     this.addEventListener('click',hideSubList);
@@ -199,6 +197,6 @@ function addSubItem(that){
 }
 window.onunload=()=>{
     const unsavedTasks= document.querySelectorAll('.save');
-    for(i=0;i<unsavedTasks.length;i++) {unsavedTasks.parentNode.parentNode.parentNode.removeChild(unsavedTasks[i])}
-    localStorage.setItem('list',document.getElementById('taskList').innerHTML)
+    for(i=0;i<unsavedTasks.length;i++) {unsavedTasks.closest('li').removeChild(unsavedTasks[i])}
+    localStorage.setItem('list',document.getElementById('taskList').innerHTML);
 }
