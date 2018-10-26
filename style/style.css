@@ -7,7 +7,7 @@
     outline: 0;
 }
 body{
-    background-image: url(/img/dark_wood/dark_wood.png);
+    background-image: url(../img/dark_wood/dark_wood.png);
     font-family: 'Lato', sans-serif;
     color: white;
     height: 100vh;
@@ -88,7 +88,7 @@ input{
     width: 5vw;
     height: 5vw;
     cursor: pointer;
-    background-image: url(/img/plus.png);
+    background-image: url(../img/plus.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -96,7 +96,7 @@ input{
     width: 5vw;
     height: 5vw;
     cursor: pointer;
-    background-image: url(/img/trash.png);
+    background-image: url(../img/trash.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
@@ -110,7 +110,7 @@ input{
     cursor: pointer;
 }
 .ticActive {
-    background-image: url(/img/tic.png);
+    background-image: url(../img/tic.png);
     background-size: 90%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -119,14 +119,14 @@ input{
     width: 5vw;
     height: 5vw;
     cursor: pointer;
-    background-image: url(/img/crayon.png);
+    background-image: url(../img/crayon.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
 .save{
     width: 5vw;
     height: 5vw;
-    background-image: url(/img/disk.png);
+    background-image: url(../img/disk.png);
     background-size: 90%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -136,7 +136,7 @@ input{
     width: 5vw;
     height: 5vw;
     cursor: pointer;
-    background-image: url(/img/arrow.png);
+    background-image: url(../img/arrow.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
