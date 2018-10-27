@@ -1,7 +1,7 @@
 function addTaskUtility() {
-    let actualTask=document.getElementById('task');
+    const actualTask=document.getElementById('task');
     const taskList=document.getElementById('taskList');
-
+    if (actualTask.value){
     let newTask, taskItem, inputArea, actionArea, tic, pen, plus, trash;
 
     newTask=makeFullElement(newTask, 'li');
@@ -17,7 +17,6 @@ function addTaskUtility() {
     trash=makeFullElement(trash, 'div', ['trash']);
         trash.addEventListener('click',erase);
 
-    if (actualTask.value){
         inputArea.appendChild(document.createTextNode(actualTask.value));
         actionArea.appendChild(pen);
         actionArea.appendChild(tic);
@@ -59,7 +58,7 @@ function subList(){
 }
 function addSubItem(that){
     let trash, tic, subItem, subInputArea, subActionArea, subTaskItem;
-
+    if(that.value){
     trash=makeFullElement(trash, 'div', ['trash']);
         trash.addEventListener('click',erase);
     tic=makeFullElement(tic, 'div', ['tic'])
@@ -69,7 +68,6 @@ function addSubItem(that){
     subActionArea=makeFullElement(subInputArea, 'div', ['subActionArea'])
     subTaskItem=makeFullElement(subTaskItem, 'div', ['subTaskItem'])
 
-    if(that.value){
         subTaskItem.appendChild(subInputArea);
         subTaskItem.appendChild(subActionArea);
         subInputArea.appendChild(document.createTextNode(that.value));

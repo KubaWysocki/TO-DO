@@ -1,6 +1,11 @@
 window.onload=()=>{
     const plus=document.getElementById('addTask');
     plus.addEventListener('click',addTaskUtility);
+    const enterTask=document.getElementById('task');
+    enterTask.focus();
+    enterTask.addEventListener('keydown',(e)=>{
+        if(e.key=="Enter") addTaskUtility();
+    });
 
     const reset=document.getElementById('btnR');
     reset.addEventListener('click',()=>{
@@ -20,11 +25,7 @@ window.onload=()=>{
         counter();
         delDone.className='btn btn-secondary';
     });
-    const enterTask=document.getElementById('task');
-    enterTask.focus();
-    enterTask.addEventListener('keydown',(e)=>{
-        if(e.key=="Enter") addTaskUtility();
-    });
+    
     const memo= localStorage.getItem('list');
     document.getElementById('taskList').innerHTML=memo;
     
@@ -33,6 +34,8 @@ window.onload=()=>{
 }
 window.onunload=()=>{
     const unsavedTasks= document.querySelectorAll('.save');
-    for(i=0;i<unsavedTasks.length;i++) {unsavedTasks.closest('li').removeChild(unsavedTasks[i])}
+    for(i=0;i<unsavedTasks.length;i++) {
+        unsavedTasks.closest('li').removeChild(unsavedTasks[i])
+    }
     localStorage.setItem('list',document.getElementById('taskList').innerHTML);
 }
