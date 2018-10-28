@@ -19,7 +19,7 @@ h1{
     text-align: center;
     background-image: linear-gradient(to bottom, #363131a6 , #292525);
     border-radius: 7px;
-    margin-top: 1vw;
+    margin-top: 2vw;
     transform: scale(1.05);
 }
 .main{
@@ -185,9 +185,11 @@ input{
     background-image: linear-gradient(to bottom, #363131a6 , #292525);
     border-radius: 7px;
     padding: 1%;
+    margin-bottom: 1%;
+    margin-top: 1%;
     display: flex;
     justify-content: space-around;
-    margin-bottom: 1%;
+    transform: scale(1.05);
 }
 @media (min-width: 576px) { 
     h1 {font-size: 5vw;}
