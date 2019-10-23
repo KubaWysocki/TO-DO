@@ -1,4 +1,7 @@
-* {
+:root{
+    font-size: 3vw;
+}
+*{
     margin: 0;
     padding: 0;
     border: 0;
@@ -12,7 +15,7 @@ body{
     height: 100vh;
 }
 h1{
-    font-size: 7vw;
+    font-size: 2.3rem;
     line-height: 120%;
 }
 .header{
@@ -26,7 +29,7 @@ h1{
     background-image: linear-gradient(to bottom, #363131a6 , #292525);
     display: flex;
     align-items: center;
-    font-size: 3.5vw;
+    font-size: 1.2rem;
     justify-content: space-between;
     padding: 1%;
     padding-right: 2%;
@@ -39,13 +42,13 @@ input{
     border: none;
     color: white;
     width: 90%;
-    font-size: 3vw;
+    font-size: 1rem;
     margin: 0;
     padding: 0;
 }
 #task{
     width: 55%;
-    font-size: 4vw;
+    font-size: 1.3rem;
 }
 .board{
     transform: scale(1.05);
@@ -60,7 +63,7 @@ input{
     list-style: none;
 }
 .board>ul>li{
-    font-size: 3vw;
+    font-size: 1rem;
 }
 .taskItem{
     background-image: linear-gradient(to bottom, #363131a6 , #292525);
@@ -153,7 +156,6 @@ input{
 .subBoard>ol{
     list-style-type: none;
 }
-
 .box{
     display: flex;
     justify-content: space-around;
@@ -192,21 +194,13 @@ input{
     transform: scale(1.05);
 }
 @media (min-width: 576px) { 
-    h1 {font-size: 5vw;}
-    .main {font-size: 2.7vw;}
-    input {font-size: 2vw;}
-    .board>ul>li {font-size: 2vw;}
+    :root {font-size: 2vw;}
     .trash, .tic, .pen, .save, .plus, .arr{width: 4.5vw;height: 4.5vw;}
-    #task{font-size: 3vw}
  }
 @media (min-width: 768px) { 
-    h1 {font-size: 4.5vw;}
-    .main {font-size: 2.3vw;}
     .trash, .tic, .pen, .save, .plus, .arr{width: 4vw;height: 4vw;}
  }
 @media (min-width: 992px) { 
+    :root {font-size: 1.7vw;}
     .trash, .tic, .pen, .save, .plus, .arr{width: 3.5vw;height: 3.5vw;}
-    input {font-size: 1.6vw;}
-    .board>ul>li {font-size: 1.6vw;}
-    #task{font-size: 2.5vw}
- }
+}
