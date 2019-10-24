@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener('load', () => {
 	const plus = document.getElementById('addTask')
 	plus.addEventListener('click', addTaskUtility)
 
@@ -30,9 +30,10 @@ window.onload = () => {
 
 	makeActions()
 	counter()
-}
-window.onunload = () => {
+})
+
+window.addEventListener('beforeunload', () => {
 	const unsavedTasks = document.querySelectorAll('.save')
 	unsavedTasks.forEach( ut => ut.closest('li').removeChild(ut))
 	localStorage.setItem('list', document.getElementById('taskList').innerHTML)
-}
+})

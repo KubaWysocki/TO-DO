@@ -5,7 +5,7 @@ function subList() {
 
 	const box = makeFullElement('div', ['box'])
 
-	const inputSubList = makeFullElement('input', null, 'Dodaj podpunkt do zadania')
+	const inputSubList = makeFullElement('input', [], 'Dodaj podpunkt do zadania')
 	inputSubList.addEventListener('keydown', function(e) {
 		if (e.key == 'Enter') addSubItem(this)
 	})
@@ -28,26 +28,26 @@ function subList() {
 }
 
 function addSubItem(that) {
-	if (that.value) {
-		const trash = makeFullElement('div', ['trash'])
-		trash.addEventListener('click', erase)
+	if (!that.value) return
 
-		const tic = makeFullElement('div', ['tic'])
-		tic.addEventListener('click', ticAction)
+	const trash = makeFullElement('div', ['trash'])
+	trash.addEventListener('click', erase)
 
-		const subItem = makeFullElement('li')
-		const subInputArea = makeFullElement('div', ['subInputArea'])
-		const subActionArea = makeFullElement('div', ['subActionArea'])
-		const subTaskItem = makeFullElement('div', ['subTaskItem'])
+	const tic = makeFullElement('div', ['tic'])
+	tic.addEventListener('click', ticAction)
 
-		subTaskItem.appendChild(subInputArea)
-		subTaskItem.appendChild(subActionArea)
-		subInputArea.appendChild(document.createTextNode(that.value))
-		subActionArea.appendChild(tic)
-		subActionArea.appendChild(trash)
-		subItem.appendChild(subTaskItem)
-		
-		that.parentNode.previousSibling.appendChild(subItem)
-	}
+	const subItem = makeFullElement('li')
+	const subInputArea = makeFullElement('div', ['subInputArea'])
+	const subActionArea = makeFullElement('div', ['subActionArea'])
+	const subTaskItem = makeFullElement('div', ['subTaskItem'])
+
+	subTaskItem.appendChild(subInputArea)
+	subTaskItem.appendChild(subActionArea)
+	subInputArea.appendChild(document.createTextNode(that.value))
+	subActionArea.appendChild(tic)
+	subActionArea.appendChild(trash)
+	subItem.appendChild(subTaskItem)
+	
+	that.parentNode.previousSibling.appendChild(subItem)
 	that.value = ''
 }

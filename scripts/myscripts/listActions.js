@@ -18,26 +18,25 @@ function hideSubList() {
 }
 
 function redoMode() {
-	let oldTask = this.parentNode.previousSibling.firstChild.nodeValue
+	const rootElement = this.parentNode.previousSibling
+	const oldTask = rootElement.firstChild.nodeValue
 
-	function save( that ) {
-		let updTask = that.parentNode.previousSibling.firstChild.nextSibling
-		that.parentNode.previousSibling.removeChild(
-			that.parentNode.previousSibling.firstChild.nextSibling
-		)
-		that.parentNode.previousSibling.firstChild.nodeValue = updTask.value
-		that.classList.remove('save')
-		that.classList.add('pen')
-		if (updTask.value == '') that.closest('ul').removeChild(that.closest('li'))
+	const save = () => {
+		const updTask = rootElement.firstChild.nextSibling
+		rootElement.removeChild(updTask)
+		rootElement.firstChild.nodeValue = updTask.value
+		this.classList.remove('save')
+		this.classList.add('pen')
+		if (updTask.value == '') this.closest('ul').removeChild(this.closest('li'))
 	}
 
-	const editInput = makeFullElement('input', null, 'Aktualizuj zadanie')
+	const editInput = makeFullElement('input', [], 'Aktualizuj zadanie')
 	editInput.value = oldTask
-	editInput.addEventListener('keydown', e => e.key == 'Enter' ? save(this) : null )
+	editInput.addEventListener('keydown', e => e.key == 'Enter' ? save() : null )
 	
 	if( this.classList.contains('pen') ) {
-		this.parentNode.previousSibling.firstChild.nodeValue = ''
-		this.parentNode.previousSibling.appendChild(editInput)
+		rootElement.firstChild.nodeValue = ''
+		rootElement.appendChild(editInput)
 		this.classList.remove('pen')
 		editInput.focus()
 		this.classList.add('save')
